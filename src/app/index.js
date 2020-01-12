@@ -1,6 +1,9 @@
 import React, { useReducer, useMemo } from 'react'
 import Provider from './components/provider'
 import Scenes from '../scenes'
+import {
+    GlobalStyle
+} from './style'
 
 export default () => {
 
@@ -10,14 +13,23 @@ export default () => {
                 return prevState
         }
     }, {
-        isLoading: true,
-        userToken: null,
+        accessToken: null,
+        expiresIn: null,
+        tokenType: null,
+        refreshToken: null,
+        scope: null,
+        clientId: 'mack',
+        clientSecret: 'password',
         username: '',
         password: '',
-        notificationBottom: null,
-        users: [],
-        profile: null,
-        tasks: []
+        productData: [],
+        notificationData: {
+            active: false,
+            component: undefined
+        },
+        shoppingCartData: [],
+        categoryData: [],
+        categorySelectedId: '',
     });
 
     const appContext = useMemo(() => ({
@@ -25,9 +37,12 @@ export default () => {
     }));
 
     return (
-        <Provider value={appContext}>
-            <Scenes />
-        </Provider>
+        <>
+            <GlobalStyle />
+            <Provider value={appContext}>
+                <Scenes />
+            </Provider>
+        </>
     )
 }
 
