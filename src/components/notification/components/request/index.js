@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../../app/components/context'
 import {
-    FiCheckCircle,
-} from 'react-icons/fi'
+    FaCheckCircle,
+} from 'react-icons/fa'
 import { Container, Message, Button, Text } from './style'
 
 export default () => {
@@ -11,7 +11,7 @@ export default () => {
 
     return (
         <Container>
-            <FiCheckCircle
+            <FaCheckCircle
                 size={60}
                 color="green"
             />

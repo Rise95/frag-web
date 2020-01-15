@@ -6,6 +6,8 @@ import {
   Redirect
 } from 'react-router-dom'
 import Home from './home'
+import Account from './account'
+import PrivateRoute from './privateRoute'
 
 export default () => {
   return (
@@ -16,9 +18,14 @@ export default () => {
       <BrowserRouter>
         <Switch>
           <Route 
-            path="/home"
-            component={Home}
+            path="/account"
+            component={Account}
           />
+          <PrivateRoute 
+            path="/home"
+          >
+            <Home />
+          </PrivateRoute>
           <Redirect  
             from="/"
             to="/home"
